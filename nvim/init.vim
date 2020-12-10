@@ -44,3 +44,6 @@ set listchars=eol:¬
 
 " Highlight the current line
 set cursorline
+
+" airline settings 
+let g:airline_powerline_fonts = 1
