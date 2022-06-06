@@ -1,19 +1,22 @@
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin()
+" Theme
+Plug 'folke/tokyonight.nvim'
 
-" Status Bar
-Plug 'bling/vim-airline'
+" Lualine
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 
-" Color Scheme
-Plug 'morhetz/gruvbox'
+" Telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 
-" Auto close parens, braces, brackets, etc
-Plug 'jiangmiao/auto-pairs'
-
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 syntax on
-let g:gruvbox_contrast_dark='dark'
-colorscheme gruvbox
+colorscheme tokyonight
 
 let mapleader=","
 
@@ -40,10 +43,25 @@ set noswapfile
 
 " Display hidden characters
 set list
-set listchars=eol:¬
+set listchars=tab:▸\ ,eol:¬
 
 " Highlight the current line
 set cursorline
 
-" airline settings 
-let g:airline_powerline_fonts = 1
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fbf <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fcb <cmd>Telescope current_buffer_fuzzy_find<cr>
+
+lua << END
+require('lualine').setup{
+    options = {
+        theme = 'tokyonight'
+    }
+}
+require('telescope').setup()
+require('telescope').load_extension("file_browser")
+END
+
