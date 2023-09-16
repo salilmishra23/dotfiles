@@ -13,6 +13,13 @@ lsp.configure('lua_ls', {
     }
 })
 
+-- Use the language version specific rust-analyzer
+require('lspconfig').rust_analyzer.setup({
+    cmd = {
+        "rustup", "run", "stable", "rust-analyzer",
+    }
+})
+
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
     lsp.buffer_autoformat()

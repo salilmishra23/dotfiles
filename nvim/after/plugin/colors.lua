@@ -1,5 +1,3 @@
-vim.cmd [[colorscheme tokyonight]]
-
 require('tokyonight').setup({
     style = 'night'
 })
@@ -9,3 +7,5 @@ require('lualine').setup {
         theme = 'tokyonight'
     }
 }
+
+vim.cmd [[colorscheme tokyonight]]

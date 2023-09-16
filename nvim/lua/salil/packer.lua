@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
     -- Treesitter
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use 'nvim-treesitter/playground'
+    use 'nvim-treesitter/nvim-treesitter-context'
     -- LSP
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -43,6 +44,7 @@ return require('packer').startup(function(use)
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
     }
+    -- Fancy UI for messages, cmdline & popmenu
     use {
         "folke/noice.nvim",
         requires = {
@@ -53,6 +55,15 @@ return require('packer').startup(function(use)
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
+    }
+    use {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        }
     }
     use { "numToStr/Comment.nvim" }
 end)

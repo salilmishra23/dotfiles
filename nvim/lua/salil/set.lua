@@ -19,5 +19,9 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 
+vim.opt.listchars = {
+    tab = '▸ ',
+    eol = '¬',
+    space = '·',
+}
 vim.opt.list = true
-vim.opt.listchars = { eol = '¬' }
