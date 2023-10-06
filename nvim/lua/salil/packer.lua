@@ -38,6 +38,11 @@ return require('packer').startup(function(use)
             -- Snippets
             { 'L3MON4D3/LuaSnip' },
             { 'rafamadriz/friendly-snippets' },
+            -- additional lua configuration for nvim
+            {
+                'folke/neodev.nvim',
+                config = function() require("neodev").setup {} end
+            }
         }
     }
     use {

@@ -25,3 +25,5 @@ vim.opt.listchars = {
     space = '·',
 }
 vim.opt.list = true
+
+-- vim.o.statuscolumn = "%s %l %r"
